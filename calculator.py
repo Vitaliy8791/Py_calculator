@@ -1,33 +1,41 @@
+def sub(x, y):
+    return x - y
+
+
+def mul(x, y):
+    return x * y
+
+
+def add(x, y):
+    return x + y
+
+
+def del_num(x, y):
+    return x / y
+
+
+def step(x, y):
+    return x ** y
+
+
+def choises(chois):
+    while chois != "start" and chois != "stop":
+        a = """Введите "start". - Для перезапуска калькулятора"""
+        b = """Введите "stop". - Для завершения калькулятора"""
+        print(a, b, sep="\n")
+        chois = input()
+    return chois
+
+
+dict_calculator = {
+    '+': add,
+    '-': sub,
+    '*': mul,
+    '/': del_num,
+    '**': step
+}
+
 try:
-    def sub(x, y):
-        return x - y
-
-
-    def mul(x, y):
-        return x * y
-
-
-    def add(x, y):
-        return x + y
-
-
-    def del_num(x, y):
-        return x / y
-
-
-    def step(x, y):
-        return x ** y
-
-
-    def choises(chois):
-        while chois != "start" and chois != "stop":
-            a = """Введите "start". - Для перезапуска калькулятора"""
-            b = """Введите "stop". - Для завершения калькулятора"""
-            print(a, b, sep="\n")
-            chois = input()
-        return chois
-
-
     def calculator(calc):
         one_num = None
         result = 0
@@ -46,20 +54,9 @@ try:
             print("Результат: ({}) {} ({}) = {} ".format(one_num, oper, two_num, result))
             print("-------------------------------------------")
             one_num = result
-
-            # else:
-            #     print('Операция ', oper, 'не входит в перечень операций!')
-
         return oper
 
 
-    dict_calculator = {
-        '+': add,
-        '-': sub,
-        '*': mul,
-        '/': del_num,
-        '**': step
-    }
     my_choise = "start"
     while my_choise == "start":
         my_choise = choises(calculator(dict_calculator))
