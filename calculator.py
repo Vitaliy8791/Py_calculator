@@ -35,10 +35,11 @@ dict_calculator = {
     '**': step
 }
 
-try:
-    def calculator(calc):
-        one_num = None
-        result = 0
+
+def calculator(calc):
+    one_num = None
+    result = 0
+    try:
         while result is not None:
             if one_num is None:
                 one_num = float(input('Введите первое число: '))
@@ -54,14 +55,15 @@ try:
             print("Результат: ({}) {} ({}) = {} ".format(one_num, oper, two_num, result))
             print("-------------------------------------------")
             one_num = result
-        return oper
+    except ZeroDivisionError:
+        print("Деление на ноль запрещено!")
+    except ValueError as e:
+        print("Некорректный ввод!")
+        print("Error: ", e)
+
+    return oper
 
 
-    my_choise = "start"
-    while my_choise == "start":
-        my_choise = choises(calculator(dict_calculator))
-except ZeroDivisionError:
-    print("Деление на ноль запрещено!")
-except ValueError as e:
-    print("Некорректный ввод!")
-    print("Error: ", e)
+my_choise = "start"
+while my_choise == "start":
+    my_choise = choises(calculator(dict_calculator))
