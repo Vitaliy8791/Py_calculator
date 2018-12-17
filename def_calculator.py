@@ -3,7 +3,6 @@ def calculator(calc, calc_fun):
     result = 0
     try:
         while result is not None:
-            two_num = None
             if one_num is None:
                 one_num = float(input('Введите первое число: '))
             oper = input('Введите действие или exit для выхода:  ').lower()
